@@ -24,7 +24,7 @@ public class Registration {
     @PostMapping(consumes = "application/json", produces = "application/json")
     public ResponseEntity<UserDTO> post(@Valid @RequestBody UserDTO userDTO) {  // se adauga @valid pentru a folosi validarile adnotate
         User user = userService.findByEmail(userDTO.getEmail());
-        if(emailAlreadyRegistered((userDTO.getEmail()))){
+        if(emailAlreadyRegistered(userDTO.getEmail())){
             System.out.println("email already in db");
         return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
     }
