@@ -14,6 +14,9 @@ import javax.validation.constraints.Size;
 @EqualsAndHashCode               // suprascrie equals si hashcode
 
 public class UserDTO {
+
+    private Integer id;
+
     @NotEmpty
     @Pattern(regexp = "[A-Z a-z/s]+", message = "Letters only!")
     private String firstName;
@@ -22,7 +25,7 @@ public class UserDTO {
     @Pattern(regexp = "[A-Z a-z/s]+", message = "Letters only!")
     private String lastName;
 
-    @Email(message = "error.user.email.pattern")   //validator pt email
+    @Email(message = "{error.user.email.pattern}")   //validator pt email
     private String email;
 
     @Pattern(regexp = "((.*)[A-Z]+(.*))", message = "Password should contain at last one capital letter!")
